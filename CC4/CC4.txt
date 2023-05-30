@@ -1,0 +1,28 @@
+Disk Image File: https://drive.google.com/drive/u/0/folders/1me_nJJh0fvdDOXX3ew2jzGQpoP7f_iFt
+
+1. Create 2 virtual machines VM1 and VM2 with disk image file. Specify type as Linux and version as Ubuntu 64-bit.
+
+2. Now specify the NAT network. Go to -> file -> preferences -> network -> check the NatNetwork checkbox. If it is not there then click on '+' sign.
+
+3. Also specify the NatNetwork for both the VM's. Right click on VM -> network -> attached to -> NatNetwork. Hit OK.
+
+4. Start both the VM's.
+
+5. Give the username & password as vagrant (lowercase).
+
+6. Check IP address of both machines. Command -> ifconfig.
+
+7. Create a new file by running command -> touch aniket.txt
+
+8. Write data into the file. Command -> nano aniket.txt. Press CTRL + S to save, CTRL + X to exit.
+
+9. Now we have to transfer this file to VM2. Check if there are files present in VM2 by running command 'ls'.
+
+10. To transfer the file to VM2 you'll have write the command - scp [name of the file] [VM name@[ip address of VM2]]:/home/vagrant            
+Command -> scp aniket.txt vagrant@10.0.2.16:/home/vagrant
+
+11. Now it will ask you for confirmation. Type 'yes' and type password and hit enter.
+
+12. Your file will be transferred to VM2.
+
+13. Check by running command 'ls' in VM2. Also check the file content using 'cat aniket.txt'

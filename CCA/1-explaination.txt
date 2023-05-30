@@ -1,0 +1,27 @@
+1. app.yaml file - It is a configuaration file in YAML for deploying a python 2.7 application.
+- The line 'runtime: python27' specifies the runtime enviroment for the application. It says that the applicatoin is written in Python 2.7
+
+- 'api_version: 1': specifies the version of the deployment API being used.The value 1 indicates the version of the API.
+
+- 'threadsafe: false' : It tell whether the application is designed to handle multiple concurrent requests in a thred-safe manner. It is false it means that the application is not thread safe.
+
+- 'handlers' : Defines the handlers for incoming requests to the application. url specifies the script or module that should handle the incoming requests matching the URL pattern. In the code, it specifies a script of module names "test.app" to handle the requests.
+
+The overall code indicates that the Python 2.7 app should be deployed with a specific runtime, API version, and hanlder configuration.
+
+
+2. The test.app file is written using webapp2 framework (lightweight framework for building web applications in python)
+
+- 'import webapp2': This line imports the webapp2 framework that provides necessary classes and functions for building web application.
+
+- 'class MainPage(webapp2.RequestHandler)': This line defines a class named MainPage that inherits from webapp2.RequestHandler. The RequestHandler class is a base class provided by webapp2 for handling HTTP requests.
+
+- 'def get(self)': This line defines a method named get within the MainPage class. The get method is a special method in webapp2 that handles HTTP GET requests.
+
+self.response.write("Hello World!"): This line generates the response content for the HTTP GET request. It uses the response object provided by the RequestHandler class to write the string "Hello World!" as the response body.
+
+'app = webapp2.WSGIApplication([('/', MainPage)], debug=True)': 
+WSGI - Web Server Gateway Interface - Defines the communication bet python apps and web servers.
+This line creates a webapp2 application instance called app. The WSGIApplication class is the main entry point of a webapp2 application. It takes a list of tuples as an argument, where each tuple represents a URL pattern and its corresponding handler class. In this case, the list contains a single tuple [('/', MainPage)], which maps the root URL '/' to the MainPage handler class. The debug=True argument enables debug mode for the application, providing more detailed error messages in case of an exception.
+
+In summary, the test.app file defines a webapp2 application with a single handler class MainPage that handles HTTP GET requests to the root URL ("/") and responds with the string "Hello World!" as the response body.
