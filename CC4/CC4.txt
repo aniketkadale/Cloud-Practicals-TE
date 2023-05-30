@@ -10,6 +10,8 @@ Disk Image File: https://drive.google.com/drive/u/0/folders/1me_nJJh0fvdDOXX3ew2
 
 5. Give the username & password as vagrant (lowercase).
 
+//sudo apt install net-tools
+
 6. Check IP address of both machines. Command -> ifconfig.
 
 7. Create a new file by running command -> touch aniket.txt
